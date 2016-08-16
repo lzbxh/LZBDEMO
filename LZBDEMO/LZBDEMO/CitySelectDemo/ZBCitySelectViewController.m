@@ -168,7 +168,7 @@ lazyLoad(NSMutableDictionary, groupCityDic)
 //索引列点击事件
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     
-    NSLog(@"===%@  ===%ld",title,(long)index);
+    LOG(@"===%@  ===%ld",title,(long)index);
     
     //点击索引，列表跳转到对应索引的行
     [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index]
