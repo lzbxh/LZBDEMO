@@ -55,11 +55,8 @@
     [self.view addSubview:self.countLable];
     [self.view addSubview:self.activeView];
     
-
-    [self performSelector:@selector(loadAllContancts) withObject:nil];
     
-
-
+    [self performSelector:@selector(loadAllContancts) withObject:nil];
 }
 
 -(void)initNavgationBar{
@@ -67,7 +64,9 @@
     /*返回*/
     UIButton  * backBut = [[UIButton   alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
     [backBut addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backBut setImage:[UIImage imageNamed:@"return.png"] forState:UIControlStateNormal];
+    //    [backBut setImage:[UIImage imageNamed:@"return.png"] forState:UIControlStateNormal];
+    [backBut setTitle:@"返回" forState:UIControlStateNormal];
+    [backBut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [backBut setImageEdgeInsets:UIEdgeInsetsMake(10, 6, 10, 14)];
     [self setNavigationBarLeftButton:backBut];
 }
@@ -176,8 +175,6 @@
     if (addressBookRef) {
         CFRelease(addressBookRef);
     }
-    
-  
 }
 
 - (void)copyAddressBook:(ABAddressBookRef)myAddressBook{
@@ -213,10 +210,10 @@
             
         }
         
-
+        
         [self filterHeader:_contantDataArray];
     });
-
+    
     
 }
 
@@ -244,12 +241,12 @@
 -(void)filterHeader:(NSArray*)dataArray{
     self.sectionIndexs = [NSMutableArray array];
     NSMutableArray *tempArray = [NSMutableArray array];
-
+    
     for (ContanctModel * model in self.contantDataArray) {
         
         [self.sectionIndexs addObject:model.titleHeader];
     }
-
+    
     // 去除数组中相同的元素
     self.sectionIndexs = [self.sectionIndexs filterTheSameElement];
     // 数组排序
@@ -266,10 +263,10 @@
     for (ContanctModel * model in  self.contantDataArray) {
         
         [[self.sectionDic objectForKey:model.titleHeader]addObject:model];
-
+        
     }
     
-
+    
     // 将排序号的首字母数组取出 分成一个个组模型 和组模型下边的一个个 item
     for (NSString *string in self.sectionIndexs) {
         ContanctGroupModel *group = [ContanctGroupModel getGroupsWithArray:self.contantDataArray groupTitle:string];
@@ -281,40 +278,37 @@
         }
     }
     self.dataArray = [tempArray mutableCopy];
-
+    
     
     
     NSLog(@"%@===%@",self.sectionIndexs,self.dataArray);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
-     self.countLable.text = [NSString stringWithFormat:@"%ld位联系人",self.contantDataArray.count];
+        self.countLable.text = [NSString stringWithFormat:@"%ld位联系人",self.contantDataArray.count];
         [self.activeView stopAnimating];
     });
-
-
 }
 
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (_isSearching) {
         return 1;
     }
     return self.dataArray.count;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_isSearching) {
         return self.searchDataArray.count;
     }
     ContanctGroupModel *group = self.dataArray[section];
-
+    
     NSLog(@"groupArray:%@",group.array);
     return group.array.count;
 }
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"FollwTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
@@ -333,37 +327,32 @@
 }
 
 
-- (NSArray*)sectionIndexTitlesForTableView:(UITableView*)tableView
-{
+- (NSArray*)sectionIndexTitlesForTableView:(UITableView*)tableView {
     if (_isSearching) {
         return nil;
     }
     return self.sectionIndexs;
 }
 #pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ContanctModel *followM;
     if (_isSearching) {
         followM = self.searchDataArray[indexPath.row];
-
+        
     }else{
         ContanctGroupModel *group = self.dataArray[indexPath.section];
         followM = group.array[indexPath.row];
-
+        
     }
     NSLog(@"name==%@  phone==%@",followM.name,followM.phone);
     self.contanctBlock?self.contanctBlock(followM):nil;
-
-    
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
 }
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (_isSearching) {
         return nil;
     }
@@ -377,8 +366,8 @@
     [bgView addSubview:label];
     return bgView;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (_isSearching) {
         return 0.1;
     }
@@ -389,8 +378,7 @@
     return 0.1;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         [cell setSeparatorInset:UIEdgeInsetsZero];
     }
@@ -400,20 +388,20 @@
 }
 
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     NSLog(@"%@",searchText);
     [self searchWithString:searchText];
 }
 
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     NSLog(@"取消");
-
+    
     searchBar.text = @"";
     [self.searchDataArray removeAllObjects];
     [searchBar setShowsCancelButton:NO animated:YES];
     self.countLable.hidden = NO;
-
+    
     [searchBar resignFirstResponder];
     _isSearching = NO;
     [self.tableView reloadData];
@@ -421,15 +409,14 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     [searchBar setShowsCancelButton:YES animated:YES];
-
+    
     _isSearching = YES;
     self.countLable.hidden = YES;
     [self.tableView reloadData];
 }
 
 
--(void)searchWithString:(NSString *)searchString
-{
+-(void)searchWithString:(NSString *)searchString {
     [self.searchDataArray removeAllObjects];
     [self.tableView reloadData];
     NSString * regex        = @"(^[0-9]+$)";
@@ -455,62 +442,57 @@
             NSString * firstCharat = [self getfirstCharact:searchString];
             NSArray * data = [self.sectionDic objectForKey:firstCharat];
             NSLog(@"firstCharat==%@ data ===%@",firstCharat,data);
-
+            
             if (data) {
                 for (int i = 0; i<data.count; i++) {
                     ContanctModel * model = data[i];
-                   
-                        if ([self searchResult:model.name searchText:searchString]) {
-                            
-                            [self.searchDataArray addObject:model];
-                            [self.tableView reloadData];
-
-                        }else{
-                            
-                            //按拼音搜索
-                            NSString *string = @"";
-                            NSString *firststring=@"";
-                            for (int i = 0; i < [model.name length]; i++)
-                            {
-                                if([string length] < 1)
-                                    string = [NSString stringWithFormat:@"%@",
-                                              [POAPinyin quickConvert:[model.name substringWithRange:NSMakeRange(i,1)]]];
-                                else
-                                    string = [NSString stringWithFormat:@"%@%@",string,
-                                              [POAPinyin quickConvert:[model.name substringWithRange:NSMakeRange(i,1)]]];
-                                if([firststring length] < 1){
-                                    
-                                    firststring = [[NSString stringWithFormat:@"%c",
-                                                   pinyinFirstLetter([model.name characterAtIndex:i])]lowercaseString];
-                                }else{
-                                    if ([model.name characterAtIndex:i]!=' ') {
-                                        firststring = [[NSString stringWithFormat:@"%@%c",firststring,
-                                                       pinyinFirstLetter([model.name characterAtIndex:i])]lowercaseString];
-                                    }
-                                    
+                    
+                    if ([self searchResult:model.name searchText:searchString]) {
+                        
+                        [self.searchDataArray addObject:model];
+                        [self.tableView reloadData];
+                        
+                    }else{
+                        
+                        //按拼音搜索
+                        NSString *string = @"";
+                        NSString *firststring=@"";
+                        for (int i = 0; i < [model.name length]; i++)
+                        {
+                            if([string length] < 1)
+                                string = [NSString stringWithFormat:@"%@",
+                                          [POAPinyin quickConvert:[model.name substringWithRange:NSMakeRange(i,1)]]];
+                            else
+                                string = [NSString stringWithFormat:@"%@%@",string,
+                                          [POAPinyin quickConvert:[model.name substringWithRange:NSMakeRange(i,1)]]];
+                            if([firststring length] < 1){
+                                
+                                firststring = [[NSString stringWithFormat:@"%c",
+                                                pinyinFirstLetter([model.name characterAtIndex:i])]lowercaseString];
+                            }else{
+                                if ([model.name characterAtIndex:i]!=' ') {
+                                    firststring = [[NSString stringWithFormat:@"%@%c",firststring,
+                                                    pinyinFirstLetter([model.name characterAtIndex:i])]lowercaseString];
                                 }
-                            }
-                            if ([self searchResult:string searchText:searchString]
-                                ||[self searchResult:firststring searchText:searchString])
-                            {
-                                [self.searchDataArray addObject:model];
-                                NSLog(@"121212====%@",self.searchDataArray);
-                                [self.tableView reloadData];
-                                
                                 
                             }
+                        }
+                        if ([self searchResult:string searchText:searchString]
+                            ||[self searchResult:firststring searchText:searchString])
+                        {
+                            [self.searchDataArray addObject:model];
+                            NSLog(@"121212====%@",self.searchDataArray);
+                            [self.tableView reloadData];
                             
                             
                         }
-
-                            
-                            
-                        }
+                    }
                 }
             }
-        
         }
+        
     }
+}
 
 
 

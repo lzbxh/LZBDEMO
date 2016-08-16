@@ -44,5 +44,8 @@
 
 -(void)setTabbarHidden:(BOOL)hide;
 
+//子类复写点
+//初始化UI
+-(void)initUI;
 
 @end

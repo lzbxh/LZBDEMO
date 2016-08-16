@@ -16,6 +16,11 @@
     [self setNavigationBarBackgroundColor:RGBAColor(255, 255, 255, 0.7f)];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController setNavigationBarHidden:YES];     //默认隐藏系统自带导航栏，用自定义的导航替换
+    [self initUI];
+}
+
+-(void)initUI {
+    //TODO
 }
 
 -(void)viewWillAppear:(BOOL)animated {

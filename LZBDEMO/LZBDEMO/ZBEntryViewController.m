@@ -10,7 +10,8 @@
 #define DEMONAMESTR  @"demoName"
 
 #import "ZBEntryViewController.h"
-#import "ContanctsViewController.h"
+#import "ContanctsViewController.h"     //通讯录选择器
+#import "ZBCitySelectViewController.h"  //城市选择器
 
 @interface ZBEntryViewController ()
 
@@ -26,12 +27,19 @@ lazyLoad(NSMutableArray, demoArray);
     [super viewDidLoad];
     [self setTitle:@"LZBDemo"];
     
-    //创建一个Demo，就在这添加一个
+    //TODO:创建一个Demo，就在这添加一个
     //通讯录Demo
     NSString *contanctsDemoClassStr = NSStringFromClass([ContanctsViewController class]);
     NSString *contanctsDemoNameStr = [NSString stringWithFormat:@"通讯录Demo"];
-    NSDictionary *dic = @{CLASSNAMESTR : contanctsDemoClassStr ,DEMONAMESTR : contanctsDemoNameStr};
-    [self.demoArray addObject:dic];
+    NSDictionary *contanctsDemoDic = @{CLASSNAMESTR : contanctsDemoClassStr ,DEMONAMESTR : contanctsDemoNameStr};
+    [self.demoArray addObject:contanctsDemoDic];
+    
+    //城市选择器
+    NSString *citySelectDemoClassStr = NSStringFromClass([ZBCitySelectViewController class]);
+    NSString *citySelectDemoNameStr  = [NSString stringWithFormat:@"城市选择器Demo"];
+    NSDictionary *citySelectDemoDic = @{CLASSNAMESTR : citySelectDemoClassStr ,DEMONAMESTR : citySelectDemoNameStr};
+    [self.demoArray addObject:citySelectDemoDic];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

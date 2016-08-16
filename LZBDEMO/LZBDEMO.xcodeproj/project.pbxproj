@@ -13,6 +13,9 @@
 		AFB873581D62C81E00AE65DC /* NSMutableArray+FilterElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB873501D62C81E00AE65DC /* NSMutableArray+FilterElement.m */; };
 		AFB8735A1D62C81E00AE65DC /* POAPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB873541D62C81E00AE65DC /* POAPinyin.m */; };
 		AFB8735F1D62C89D00AE65DC /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB873511D62C81E00AE65DC /* pinyin.m */; };
+		AFB873641D63055F00AE65DC /* ZBCitySelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB873631D63055F00AE65DC /* ZBCitySelectViewController.m */; };
+		AFB873681D631B1200AE65DC /* ZBCityGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB873671D631B1200AE65DC /* ZBCityGroupModel.m */; };
+		AFB8736B1D631B3000AE65DC /* ZBCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8736A1D631B3000AE65DC /* ZBCityModel.m */; };
 		AFD554BA1D5DBA6C00632E33 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD554B91D5DBA6C00632E33 /* Default-568h@2x.png */; };
 		AFD554BF1D5DC12300632E33 /* ZBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD554BE1D5DC12300632E33 /* ZBTabBarController.m */; };
 		AFD554C31D5DC15F00632E33 /* ZBNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD554C21D5DC15F00632E33 /* ZBNavigationBarView.m */; };
@@ -39,6 +42,12 @@
 		AFB873521D62C81E00AE65DC /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		AFB873531D62C81E00AE65DC /* POAPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POAPinyin.h; sourceTree = "<group>"; };
 		AFB873541D62C81E00AE65DC /* POAPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POAPinyin.m; sourceTree = "<group>"; };
+		AFB873621D63055F00AE65DC /* ZBCitySelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCitySelectViewController.h; sourceTree = "<group>"; };
+		AFB873631D63055F00AE65DC /* ZBCitySelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCitySelectViewController.m; sourceTree = "<group>"; };
+		AFB873661D631B1200AE65DC /* ZBCityGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCityGroupModel.h; sourceTree = "<group>"; };
+		AFB873671D631B1200AE65DC /* ZBCityGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCityGroupModel.m; sourceTree = "<group>"; };
+		AFB873691D631B3000AE65DC /* ZBCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCityModel.h; sourceTree = "<group>"; };
+		AFB8736A1D631B3000AE65DC /* ZBCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCityModel.m; sourceTree = "<group>"; };
 		AFD554B91D5DBA6C00632E33 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AFD554BD1D5DC12300632E33 /* ZBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTabBarController.h; sourceTree = "<group>"; };
 		AFD554BE1D5DC12300632E33 /* ZBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTabBarController.m; sourceTree = "<group>"; };
@@ -93,6 +102,27 @@
 			path = ContanctsDemo;
 			sourceTree = "<group>";
 		};
+		AFB873611D63052200AE65DC /* CitySelectDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AFB873651D631B0200AE65DC /* CityModel */,
+				AFB873621D63055F00AE65DC /* ZBCitySelectViewController.h */,
+				AFB873631D63055F00AE65DC /* ZBCitySelectViewController.m */,
+			);
+			path = CitySelectDemo;
+			sourceTree = "<group>";
+		};
+		AFB873651D631B0200AE65DC /* CityModel */ = {
+			isa = PBXGroup;
+			children = (
+				AFB873691D631B3000AE65DC /* ZBCityModel.h */,
+				AFB8736A1D631B3000AE65DC /* ZBCityModel.m */,
+				AFB873661D631B1200AE65DC /* ZBCityGroupModel.h */,
+				AFB873671D631B1200AE65DC /* ZBCityGroupModel.m */,
+			);
+			name = CityModel;
+			sourceTree = "<group>";
+		};
 		AFD554BB1D5DBFE400632E33 /* ZBBaseClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +165,7 @@
 		AFD554C81D5DD2BB00632E33 /* DEMO */ = {
 			isa = PBXGroup;
 			children = (
+				AFB873611D63052200AE65DC /* CitySelectDemo */,
 				AFB873481D62C81E00AE65DC /* ContanctsDemo */,
 				AFD554D11D5DD41400632E33 /* ZBEntryViewController.h */,
 				AFD554D21D5DD41400632E33 /* ZBEntryViewController.m */,
@@ -273,7 +304,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB873681D631B1200AE65DC /* ZBCityGroupModel.m in Sources */,
 				AFB8735F1D62C89D00AE65DC /* pinyin.m in Sources */,
+				AFB873641D63055F00AE65DC /* ZBCitySelectViewController.m in Sources */,
 				AFDC82311D5D9BCA00BF5577 /* ZBNavigationController.m in Sources */,
 				AFD554D31D5DD41400632E33 /* ZBEntryViewController.m in Sources */,
 				AFB873571D62C81E00AE65DC /* ContanctsViewController.m in Sources */,
@@ -287,6 +320,7 @@
 				AFB873561D62C81E00AE65DC /* ContanctModel.m in Sources */,
 				AFD554BF1D5DC12300632E33 /* ZBTabBarController.m in Sources */,
 				AFD554C71D5DC27900632E33 /* ZBBaseViewController.m in Sources */,
+				AFB8736B1D631B3000AE65DC /* ZBCityModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
