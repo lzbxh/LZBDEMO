@@ -23,9 +23,11 @@
 
 //所有城市model Array
 @property(strong ,nonatomic)NSMutableArray *allCityDataArray;
+//根据城市拼音首字母分组过后的城市dic
+@property(strong ,nonatomic)NSMutableDictionary *groupCityDic;
  //tableView数据源
 @property(strong ,nonatomic)NSMutableArray *dataArray;
-//搜索结果数据源
+//搜索结果
 @property(strong ,nonatomic)NSMutableArray *searchDataArray;
 
 @end
@@ -37,6 +39,7 @@ lazyLoad(UISearchBar, searchBar)
 lazyLoad(NSMutableArray, allCityDataArray)
 lazyLoad(NSMutableArray, dataArray)
 lazyLoad(NSMutableArray, searchDataArray)
+lazyLoad(NSMutableDictionary, groupCityDic)
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -97,6 +100,8 @@ lazyLoad(NSMutableArray, searchDataArray)
     
     //搜索
     if (tableView == self.searchDisplayController.searchResultsTableView) {
+        ZBCityModel *model = self.searchDataArray[indexPath.row];
+        cell.textLabel.text = model.cityName;
         return cell;
     }
     
@@ -123,6 +128,7 @@ lazyLoad(NSMutableArray, searchDataArray)
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return nil;
     }
+
     // 背景图
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
     bgView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
@@ -133,6 +139,21 @@ lazyLoad(NSMutableArray, searchDataArray)
     [bgView addSubview:label];
     return bgView;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZBCityModel *model = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        model = self.searchDataArray[indexPath.row];
+        
+    }else{
+        ZBCityGroupModel *group = self.dataArray[indexPath.section];
+        model = group.cityArray[indexPath.row];
+    }
+    
+    LOG(@"当前选择的城市：%@" ,model.cityName);
+
+}
+
 
 //添加索引列
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
@@ -187,8 +208,82 @@ lazyLoad(NSMutableArray, searchDataArray)
 }
 
 -(void)searchWithString:(NSString *)searchString {
-    //TODO
+    [self.searchDataArray removeAllObjects];
+    [self.tableView reloadData];
+
+    if ([searchString length] != 0) {
+        //1.按照输入字符得到拼音首字母
+        NSString *firstCharat = [self getfirstCharact:searchString];
+ 
+        //2.取出分组dic中对应的array
+        NSArray *cityArray = [self.groupCityDic objectForKey:firstCharat];
+        
+        LOG(@"=======根据拼音首字母得到的结果=======");
+        for (ZBCityModel *model in cityArray) {
+            LOG(@"%@" ,model.cityName);
+        }
+        LOG(@"=======根据拼音首字母得到的结果=======");
+        
+        //3.根据汉字过滤结果
+        if (cityArray) {
+            for (int i = 0; i<cityArray.count; i++) {
+                ZBCityModel * model = cityArray[i];
+                
+                if ([self searchResult:model.cityName searchText:searchString]) {
+                    
+                    [self.searchDataArray addObject:model];
+                    [self.tableView reloadData];
+                    
+                }else{
+                    
+                    //按拼音搜索
+                    NSString *string = @"";
+                    NSString *firststring=@"";
+                    for (int i = 0; i < [model.cityName length]; i++)
+                    {
+                        if([string length] < 1)
+                            string = [NSString stringWithFormat:@"%@",
+                                      [POAPinyin quickConvert:[model.cityName substringWithRange:NSMakeRange(i,1)]]];
+                        else
+                            string = [NSString stringWithFormat:@"%@%@",string,
+                                      [POAPinyin quickConvert:[model.cityName substringWithRange:NSMakeRange(i,1)]]];
+                        if([firststring length] < 1){
+                            
+                            firststring = [[NSString stringWithFormat:@"%c",
+                                            pinyinFirstLetter([model.cityName characterAtIndex:i])]lowercaseString];
+                        }else{
+                            if ([model.cityName characterAtIndex:i]!=' ') {
+                                firststring = [[NSString stringWithFormat:@"%@%c",firststring,
+                                                pinyinFirstLetter([model.cityName characterAtIndex:i])]lowercaseString];
+                            }
+                            
+                        }
+                    }
+                    if ([self searchResult:string searchText:searchString]
+                        ||[self searchResult:firststring searchText:searchString])
+                    {
+                        [self.searchDataArray addObject:model];
+                        NSLog(@"121212====%@",self.searchDataArray);
+                        [self.tableView reloadData];
+                        
+                        
+                    }
+                }
+            }
+        }
+    }
+    
 }
+
+-(BOOL)searchResult:(NSString *)contactName searchText:(NSString *)searchT{
+    NSComparisonResult result = [contactName compare:searchT options:NSCaseInsensitiveSearch
+                                               range:NSMakeRange(0, searchT.length)];
+    if (result == NSOrderedSame)
+        return YES;
+    else
+        return NO;
+}
+
 
 #pragma mark ----UISearchBarDelegate----
 
@@ -231,18 +326,17 @@ lazyLoad(NSMutableArray, searchDataArray)
         return [string1 compare:string2];
     }];
     
-    NSMutableDictionary *sectionDic = [NSMutableDictionary dictionary];
     //对城市进行分组操作
     for (NSString *key in self.sectionIndexs) {
-        [sectionDic setObject:[NSMutableArray array] forKey:key];
+        [self.groupCityDic setObject:[NSMutableArray array] forKey:key];
     }
     for (ZBCityModel *model in self.allCityDataArray) {
-        [[sectionDic objectForKey:model.titleHeader]addObject:model];
+        [[self.groupCityDic objectForKey:model.titleHeader]addObject:model];
     }
 
     //组装groupModel
     for (NSString *string in self.sectionIndexs) {
-        NSArray *cityArray = [sectionDic objectForKey:string];
+        NSArray *cityArray = [self.groupCityDic objectForKey:string];
         ZBCityGroupModel *group = [[ZBCityGroupModel alloc]initWithGroupWithCityArray:cityArray andGroupTitle:string];
         if ([group.titleHeader isEqualToString:@"#"]) {     //出现#号的数据放置到最前面
             [self.dataArray insertObject:group atIndex:0];

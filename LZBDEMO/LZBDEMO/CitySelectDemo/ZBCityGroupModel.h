@@ -12,7 +12,7 @@
 
 @interface ZBCityGroupModel : NSObject
 
-@property(strong ,nonatomic)NSArray<ZBCityGroupModel *> *cityArray;     //该组下的city
+@property(strong ,nonatomic)NSArray<ZBCityModel *> *cityArray;     //该组下的city
 
 @property(strong ,nonatomic)NSString *titleHeader;                      //拼音首字母
 
