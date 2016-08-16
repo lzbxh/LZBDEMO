@@ -7,6 +7,7 @@
 //
 
 #import "ZBEntryViewController.h"
+#import "ContanctsViewController.h"
 
 @interface ZBEntryViewController ()
 
@@ -21,6 +22,10 @@ lazyLoad(NSMutableArray, demoArray);
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"LZBDemo"];
+    
+    //通讯录Demo
+    NSString *contanctsDemoStr = NSStringFromClass([ContanctsViewController class]);
+    [self.demoArray addObject:contanctsDemoStr];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -37,7 +42,10 @@ lazyLoad(NSMutableArray, demoArray);
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //TODO
+    NSString *currentDemoClassStr = self.demoArray[indexPath.row];
+    Class currentClass = NSClassFromString(currentDemoClassStr);
+    UIViewController *currentDemoVC = [[currentClass alloc]init];
+    [self.navigationController pushViewController:currentDemoVC animated:YES];
 }
 
 @end
