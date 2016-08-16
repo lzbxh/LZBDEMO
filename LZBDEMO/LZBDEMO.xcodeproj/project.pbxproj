@@ -39,8 +39,6 @@
 		AFB873521D62C81E00AE65DC /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		AFB873531D62C81E00AE65DC /* POAPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POAPinyin.h; sourceTree = "<group>"; };
 		AFB873541D62C81E00AE65DC /* POAPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POAPinyin.m; sourceTree = "<group>"; };
-		AFB8735B1D62C85B00AE65DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		AFB8735D1D62C87300AE65DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AFD554B91D5DBA6C00632E33 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AFD554BD1D5DC12300632E33 /* ZBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTabBarController.h; sourceTree = "<group>"; };
 		AFD554BE1D5DC12300632E33 /* ZBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTabBarController.m; sourceTree = "<group>"; };
@@ -156,8 +154,6 @@
 		AFDC820A1D5D9A2500BF5577 = {
 			isa = PBXGroup;
 			children = (
-				AFB8735D1D62C87300AE65DC /* Foundation.framework */,
-				AFB8735B1D62C85B00AE65DC /* UIKit.framework */,
 				AFD554B91D5DBA6C00632E33 /* Default-568h@2x.png */,
 				AFDC82151D5D9A2500BF5577 /* LZBDEMO */,
 				AFDC82141D5D9A2500BF5577 /* Products */,
