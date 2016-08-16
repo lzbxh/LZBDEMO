@@ -6,12 +6,15 @@
 //  Copyright © 2016年 伙伴行. All rights reserved.
 //
 
+#define CLASSNAMESTR @"className"
+#define DEMONAMESTR  @"demoName"
+
 #import "ZBEntryViewController.h"
 #import "ContanctsViewController.h"
 
 @interface ZBEntryViewController ()
 
-@property(strong ,nonatomic)NSMutableArray<NSString *> *demoArray;
+@property(strong ,nonatomic)NSMutableArray<NSDictionary *> *demoArray;
 
 @end
 
@@ -23,9 +26,12 @@ lazyLoad(NSMutableArray, demoArray);
     [super viewDidLoad];
     [self setTitle:@"LZBDemo"];
     
+    //创建一个Demo，就在这添加一个
     //通讯录Demo
-    NSString *contanctsDemoStr = NSStringFromClass([ContanctsViewController class]);
-    [self.demoArray addObject:contanctsDemoStr];
+    NSString *contanctsDemoClassStr = NSStringFromClass([ContanctsViewController class]);
+    NSString *contanctsDemoNameStr = [NSString stringWithFormat:@"通讯录Demo"];
+    NSDictionary *dic = @{CLASSNAMESTR : contanctsDemoClassStr ,DEMONAMESTR : contanctsDemoNameStr};
+    [self.demoArray addObject:dic];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -37,12 +43,14 @@ lazyLoad(NSMutableArray, demoArray);
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = self.demoArray[indexPath.row];
+    NSDictionary *dic = self.demoArray[indexPath.row];
+    cell.textLabel.text = dic[DEMONAMESTR];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *currentDemoClassStr = self.demoArray[indexPath.row];
+    NSDictionary *dic = self.demoArray[indexPath.row];
+    NSString *currentDemoClassStr = dic[CLASSNAMESTR];
     Class currentClass = NSClassFromString(currentDemoClassStr);
     UIViewController *currentDemoVC = [[currentClass alloc]init];
     [self.navigationController pushViewController:currentDemoVC animated:YES];
