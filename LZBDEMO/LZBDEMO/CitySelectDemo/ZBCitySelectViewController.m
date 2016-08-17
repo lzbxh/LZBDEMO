@@ -18,7 +18,7 @@
 @interface ZBCitySelectViewController ()<UISearchBarDelegate ,UITableViewDataSource ,UITableViewDelegate>
 
 @property(strong ,nonatomic)UISearchBar *searchBar;
-#warning 等我完成功能了再优化
+#warning 等我完成功能了再做兼容优化
 @property(strong ,nonatomic)UISearchDisplayController *searchDisplayer;
 @property(strong ,nonatomic)UITableView *tableView;
 @property(strong ,nonatomic)NSMutableArray *sectionIndexs;
@@ -191,7 +191,7 @@ lazyLoad(NSMutableDictionary, groupCityDic)
     ZBCityModel *model = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         model = self.searchDataArray[indexPath.row];
-        
+        LOG(@"当前选择的城市：%@" ,model.cityName);
     }else{
         if (indexPath.section == 0) {       //选择定位城市
             LOG(@"选择定位城市：%@" ,self.locationCityNameStr);
