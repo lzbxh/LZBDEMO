@@ -12,6 +12,8 @@
 #import "NSMutableArray+FilterElement.h"
 #import "POAPinyin.h"
 #import "pinyin.h"
+#import "ZBLocationManager.h"
+#import "ZBLocateCityTVCell.h"
 
 @interface ZBCitySelectViewController ()<UISearchBarDelegate ,UITableViewDataSource ,UITableViewDelegate>
 
@@ -30,6 +32,8 @@
 //搜索结果
 @property(strong ,nonatomic)NSMutableArray *searchDataArray;
 
+@property(strong ,nonatomic)NSString *locationCityNameStr;
+
 @end
 
 @implementation ZBCitySelectViewController
@@ -44,6 +48,22 @@ lazyLoad(NSMutableDictionary, groupCityDic)
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"城市选择器Demo"];
+#warning --DEBUGUI--
+    
+    WS(ws);
+    self.locationCityNameStr = @"正在定位";
+    [[ZBLocationManager shareInstance]startLocationSeverWithBlock:^(BOOL isUserCanLocation, NSString *pro, NSString *area, NSString *city) {
+        if (isUserCanLocation) {
+            LOG(@"----pro:%@ city:%@ area:%@" ,pro ,city ,area);
+            self.locationCityNameStr = city;
+        }else {
+            LOG(@"定位失败");
+            self.locationCityNameStr = @"定位失败";
+        }
+        //定位完成，刷新
+        [ws.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    
     NSArray *cityDemoData = [NSArray arrayWithObjects:@"北京市", @"天津市" ,@"石家庄市" ,@"唐山市" ,@"秦皇岛市" ,@"邯郸市" ,@"邢台市" ,@"保定市" ,@"张家口市" ,@"承德市" ,@"沧州市" ,@"廊坊市" ,@"衡水市" ,@"太原市" ,@"大同市" ,@"阳泉市" ,@"长治市" ,@"晋城市" ,@"朔州市" ,@"晋中市" ,@"运城市" ,@"忻州市" ,@"临汾市" ,@"吕梁市" ,@"呼和浩特市" ,@"包头市" ,nil];
     for (NSString *cityName in cityDemoData) {
         ZBCityModel *model = [[ZBCityModel alloc]initWithCityName:cityName];
@@ -52,6 +72,7 @@ lazyLoad(NSMutableDictionary, groupCityDic)
         [self.allCityDataArray addObject:model];
     }
     [self filterHeader];
+#warning --DEBUGUI--
 }
 
 -(void)initUI {
@@ -66,7 +87,7 @@ lazyLoad(NSMutableDictionary, groupCityDic)
     //searchBar
     self.searchBar.frame = CGRectMake(0, 0, ZBSCREENWIDTH, SEARCHBARHEIGHT);
     self.searchBar.delegate = self;
-    self.searchBar.placeholder = @"搜索";
+    self.searchBar.placeholder = @"请输入城市名或拼音查询";
     self.tableView.tableHeaderView = self.searchBar;
     
     //searchDisplayer
@@ -81,15 +102,20 @@ lazyLoad(NSMutableDictionary, groupCityDic)
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return 1;
     }
-    return self.dataArray.count;
+    return self.dataArray.count + 1;        //多一个当前定位城市
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return self.searchDataArray.count;
+    }else {
+        if (section == 0) {
+            return 1;
+        }else {            
+            ZBCityGroupModel *groupModel = self.dataArray[section - 1];
+            return groupModel.cityArray.count;
+        }
     }
-    ZBCityGroupModel *groupModel = self.dataArray[section];
-    return groupModel.cityArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,12 +129,21 @@ lazyLoad(NSMutableDictionary, groupCityDic)
         ZBCityModel *model = self.searchDataArray[indexPath.row];
         cell.textLabel.text = model.cityName;
         return cell;
+    }else {
+        if (indexPath.section == 0) {
+            cell = nil;
+            static NSString *const currentCityCellIdent = @"currentCityCellIdent";
+            cell = [tableView dequeueReusableCellWithIdentifier:currentCityCellIdent];
+            if (!cell) {
+                cell = [[ZBLocateCityTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:currentCityCellIdent];
+            }
+            ((ZBLocateCityTVCell *)cell).locateCityName = self.locationCityNameStr;
+        }else {
+            ZBCityGroupModel *groupModel = self.dataArray[indexPath.section - 1];
+            ZBCityModel *cityModel = groupModel.cityArray[indexPath.row];
+            cell.textLabel.text = cityModel.cityName;
+        }
     }
-    
-    ZBCityGroupModel *groupModel = self.dataArray[indexPath.section];
-    ZBCityModel *cityModel = groupModel.cityArray[indexPath.row];
-    cell.textLabel.text = cityModel.cityName;
-    
     return cell;
 }
 
@@ -116,8 +151,13 @@ lazyLoad(NSMutableDictionary, groupCityDic)
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return 0.0f;
+    }else {
+        if (section == 0) {
+            return 0.0f;
+        }else {
+            return 20.0f;
+        }
     }
-    return 20.0f;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -127,17 +167,24 @@ lazyLoad(NSMutableDictionary, groupCityDic)
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return nil;
+    } else {
+        // 背景图
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
+        bgView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+        // 显示分区的 label
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width-40, 20)];
+        
+        if (section == 0) {
+//            label.text = @"当前定位";
+            return nil;
+        }else {
+            label.text = self.sectionIndexs[section - 1];
+            label.font = [UIFont systemFontOfSize:15];
+        }
+        [bgView addSubview:label];
+        
+        return bgView;
     }
-
-    // 背景图
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
-    bgView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
-    // 显示分区的 label
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width-40, 20)];
-    label.text = self.sectionIndexs[section];
-    label.font = [UIFont systemFontOfSize:15];
-    [bgView addSubview:label];
-    return bgView;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,12 +193,15 @@ lazyLoad(NSMutableDictionary, groupCityDic)
         model = self.searchDataArray[indexPath.row];
         
     }else{
-        ZBCityGroupModel *group = self.dataArray[indexPath.section];
-        model = group.cityArray[indexPath.row];
+        if (indexPath.section == 0) {       //选择定位城市
+            LOG(@"选择定位城市：%@" ,self.locationCityNameStr);
+        }else {
+            ZBCityGroupModel *group = self.dataArray[indexPath.section - 1];
+            model = group.cityArray[indexPath.row];
+            LOG(@"当前选择的城市：%@" ,model.cityName);
+        }
     }
     
-    LOG(@"当前选择的城市：%@" ,model.cityName);
-
 }
 
 

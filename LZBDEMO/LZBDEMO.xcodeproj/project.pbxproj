@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF490CE71D63F823009803E7 /* ZBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490CE61D63F823009803E7 /* ZBLocationManager.m */; };
+		AF490CEB1D63FDF6009803E7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF490CEA1D63FDF6009803E7 /* CoreLocation.framework */; };
+		AF490CF61D64074D009803E7 /* ZBLocateCityTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490CF51D64074D009803E7 /* ZBLocateCityTVCell.m */; };
+		AF490D051D640B5C009803E7 /* ZBBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490CFA1D640B5C009803E7 /* ZBBaseTableViewCell.m */; };
+		AF490D061D640B5C009803E7 /* ZBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490CFC1D640B5C009803E7 /* ZBBaseViewController.m */; };
+		AF490D071D640B5C009803E7 /* ZBNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490CFE1D640B5C009803E7 /* ZBNavigationBarView.m */; };
+		AF490D081D640B5C009803E7 /* ZBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490D001D640B5C009803E7 /* ZBNavigationController.m */; };
+		AF490D091D640B5C009803E7 /* ZBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490D021D640B5C009803E7 /* ZBTabBarController.m */; };
+		AF490D0A1D640B5C009803E7 /* ZBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490D041D640B5C009803E7 /* ZBTableViewController.m */; };
+		AF490D0E1D640B90009803E7 /* NSString+ZBNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490D0D1D640B90009803E7 /* NSString+ZBNSString.m */; };
 		AFB873551D62C81E00AE65DC /* ContanctGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8734A1D62C81E00AE65DC /* ContanctGroupModel.m */; };
 		AFB873561D62C81E00AE65DC /* ContanctModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8734C1D62C81E00AE65DC /* ContanctModel.m */; };
 		AFB873571D62C81E00AE65DC /* ContanctsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8734E1D62C81E00AE65DC /* ContanctsViewController.m */; };
@@ -17,19 +27,33 @@
 		AFB873681D631B1200AE65DC /* ZBCityGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB873671D631B1200AE65DC /* ZBCityGroupModel.m */; };
 		AFB8736B1D631B3000AE65DC /* ZBCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8736A1D631B3000AE65DC /* ZBCityModel.m */; };
 		AFD554BA1D5DBA6C00632E33 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD554B91D5DBA6C00632E33 /* Default-568h@2x.png */; };
-		AFD554BF1D5DC12300632E33 /* ZBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD554BE1D5DC12300632E33 /* ZBTabBarController.m */; };
-		AFD554C31D5DC15F00632E33 /* ZBNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD554C21D5DC15F00632E33 /* ZBNavigationBarView.m */; };
-		AFD554C71D5DC27900632E33 /* ZBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD554C61D5DC27900632E33 /* ZBBaseViewController.m */; };
-		AFD554CD1D5DD32300632E33 /* ZBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD554CC1D5DD32300632E33 /* ZBTableViewController.m */; };
 		AFD554D31D5DD41400632E33 /* ZBEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD554D21D5DD41400632E33 /* ZBEntryViewController.m */; };
 		AFDC82181D5D9A2500BF5577 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDC82171D5D9A2500BF5577 /* main.m */; };
 		AFDC821B1D5D9A2500BF5577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDC821A1D5D9A2500BF5577 /* AppDelegate.m */; };
 		AFDC82231D5D9A2500BF5577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDC82221D5D9A2500BF5577 /* Assets.xcassets */; };
 		AFDC82261D5D9A2500BF5577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDC82241D5D9A2500BF5577 /* LaunchScreen.storyboard */; };
-		AFDC82311D5D9BCA00BF5577 /* ZBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDC82301D5D9BCA00BF5577 /* ZBNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF490CE51D63F823009803E7 /* ZBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBLocationManager.h; sourceTree = "<group>"; };
+		AF490CE61D63F823009803E7 /* ZBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBLocationManager.m; sourceTree = "<group>"; };
+		AF490CEA1D63FDF6009803E7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AF490CF41D64074D009803E7 /* ZBLocateCityTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBLocateCityTVCell.h; sourceTree = "<group>"; };
+		AF490CF51D64074D009803E7 /* ZBLocateCityTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBLocateCityTVCell.m; sourceTree = "<group>"; };
+		AF490CF91D640B5C009803E7 /* ZBBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBaseTableViewCell.h; sourceTree = "<group>"; };
+		AF490CFA1D640B5C009803E7 /* ZBBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBaseTableViewCell.m; sourceTree = "<group>"; };
+		AF490CFB1D640B5C009803E7 /* ZBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBaseViewController.h; sourceTree = "<group>"; };
+		AF490CFC1D640B5C009803E7 /* ZBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBaseViewController.m; sourceTree = "<group>"; };
+		AF490CFD1D640B5C009803E7 /* ZBNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNavigationBarView.h; sourceTree = "<group>"; };
+		AF490CFE1D640B5C009803E7 /* ZBNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNavigationBarView.m; sourceTree = "<group>"; };
+		AF490CFF1D640B5C009803E7 /* ZBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNavigationController.h; sourceTree = "<group>"; };
+		AF490D001D640B5C009803E7 /* ZBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNavigationController.m; sourceTree = "<group>"; };
+		AF490D011D640B5C009803E7 /* ZBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTabBarController.h; sourceTree = "<group>"; };
+		AF490D021D640B5C009803E7 /* ZBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTabBarController.m; sourceTree = "<group>"; };
+		AF490D031D640B5C009803E7 /* ZBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTableViewController.h; sourceTree = "<group>"; };
+		AF490D041D640B5C009803E7 /* ZBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTableViewController.m; sourceTree = "<group>"; };
+		AF490D0C1D640B90009803E7 /* NSString+ZBNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBNSString.h"; sourceTree = "<group>"; };
+		AF490D0D1D640B90009803E7 /* NSString+ZBNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBNSString.m"; sourceTree = "<group>"; };
 		AFB873491D62C81E00AE65DC /* ContanctGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContanctGroupModel.h; sourceTree = "<group>"; };
 		AFB8734A1D62C81E00AE65DC /* ContanctGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContanctGroupModel.m; sourceTree = "<group>"; };
 		AFB8734B1D62C81E00AE65DC /* ContanctModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContanctModel.h; sourceTree = "<group>"; };
@@ -49,14 +73,6 @@
 		AFB873691D631B3000AE65DC /* ZBCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCityModel.h; sourceTree = "<group>"; };
 		AFB8736A1D631B3000AE65DC /* ZBCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCityModel.m; sourceTree = "<group>"; };
 		AFD554B91D5DBA6C00632E33 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AFD554BD1D5DC12300632E33 /* ZBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTabBarController.h; sourceTree = "<group>"; };
-		AFD554BE1D5DC12300632E33 /* ZBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTabBarController.m; sourceTree = "<group>"; };
-		AFD554C11D5DC15F00632E33 /* ZBNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNavigationBarView.h; sourceTree = "<group>"; };
-		AFD554C21D5DC15F00632E33 /* ZBNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNavigationBarView.m; sourceTree = "<group>"; };
-		AFD554C51D5DC27900632E33 /* ZBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBaseViewController.h; sourceTree = "<group>"; };
-		AFD554C61D5DC27900632E33 /* ZBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBaseViewController.m; sourceTree = "<group>"; };
-		AFD554CB1D5DD32300632E33 /* ZBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTableViewController.h; sourceTree = "<group>"; };
-		AFD554CC1D5DD32300632E33 /* ZBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTableViewController.m; sourceTree = "<group>"; };
 		AFD554D11D5DD41400632E33 /* ZBEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBEntryViewController.h; sourceTree = "<group>"; };
 		AFD554D21D5DD41400632E33 /* ZBEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBEntryViewController.m; sourceTree = "<group>"; };
 		AFDC82131D5D9A2500BF5577 /* LZBDEMO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZBDEMO.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,8 +83,6 @@
 		AFDC82251D5D9A2500BF5577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFDC82271D5D9A2500BF5577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFDC822D1D5D9AB400BF5577 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		AFDC822F1D5D9BCA00BF5577 /* ZBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNavigationController.h; sourceTree = "<group>"; };
-		AFDC82301D5D9BCA00BF5577 /* ZBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNavigationController.m; sourceTree = "<group>"; };
 		AFDC82321D5D9CD300BF5577 /* GlobalDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,12 +91,59 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF490CEB1D63FDF6009803E7 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF490CE41D63F80C009803E7 /* ZBLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				AF490CE51D63F823009803E7 /* ZBLocationManager.h */,
+				AF490CE61D63F823009803E7 /* ZBLocationManager.m */,
+			);
+			name = ZBLocationManager;
+			sourceTree = "<group>";
+		};
+		AF490CEC1D64067E009803E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF490CF41D64074D009803E7 /* ZBLocateCityTVCell.h */,
+				AF490CF51D64074D009803E7 /* ZBLocateCityTVCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AF490CF81D640B5C009803E7 /* ZBBaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				AF490CF91D640B5C009803E7 /* ZBBaseTableViewCell.h */,
+				AF490CFA1D640B5C009803E7 /* ZBBaseTableViewCell.m */,
+				AF490CFB1D640B5C009803E7 /* ZBBaseViewController.h */,
+				AF490CFC1D640B5C009803E7 /* ZBBaseViewController.m */,
+				AF490CFD1D640B5C009803E7 /* ZBNavigationBarView.h */,
+				AF490CFE1D640B5C009803E7 /* ZBNavigationBarView.m */,
+				AF490CFF1D640B5C009803E7 /* ZBNavigationController.h */,
+				AF490D001D640B5C009803E7 /* ZBNavigationController.m */,
+				AF490D011D640B5C009803E7 /* ZBTabBarController.h */,
+				AF490D021D640B5C009803E7 /* ZBTabBarController.m */,
+				AF490D031D640B5C009803E7 /* ZBTableViewController.h */,
+				AF490D041D640B5C009803E7 /* ZBTableViewController.m */,
+			);
+			path = ZBBaseClass;
+			sourceTree = "<group>";
+		};
+		AF490D0B1D640B6A009803E7 /* ZBCategory */ = {
+			isa = PBXGroup;
+			children = (
+				AF490D0C1D640B90009803E7 /* NSString+ZBNSString.h */,
+				AF490D0D1D640B90009803E7 /* NSString+ZBNSString.m */,
+			);
+			name = ZBCategory;
+			sourceTree = "<group>";
+		};
 		AFB873481D62C81E00AE65DC /* ContanctsDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +166,8 @@
 		AFB873611D63052200AE65DC /* CitySelectDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AF490CEC1D64067E009803E7 /* View */,
+				AF490CE41D63F80C009803E7 /* ZBLocationManager */,
 				AFB873651D631B0200AE65DC /* CityModel */,
 				AFB873621D63055F00AE65DC /* ZBCitySelectViewController.h */,
 				AFB873631D63055F00AE65DC /* ZBCitySelectViewController.m */,
@@ -123,45 +186,6 @@
 			name = CityModel;
 			sourceTree = "<group>";
 		};
-		AFD554BB1D5DBFE400632E33 /* ZBBaseClass */ = {
-			isa = PBXGroup;
-			children = (
-				AFD554CA1D5DD30B00632E33 /* ZBBaseTableViewControlller */,
-				AFD554C41D5DC26000632E33 /* ZBBaseViewController */,
-				AFD554C01D5DC14200632E33 /* ZBNavigationBar */,
-				AFD554BC1D5DC10100632E33 /* ZBTabbarController */,
-				AFDC822E1D5D9B9700BF5577 /* ZBNavigationController */,
-			);
-			name = ZBBaseClass;
-			sourceTree = "<group>";
-		};
-		AFD554BC1D5DC10100632E33 /* ZBTabbarController */ = {
-			isa = PBXGroup;
-			children = (
-				AFD554BD1D5DC12300632E33 /* ZBTabBarController.h */,
-				AFD554BE1D5DC12300632E33 /* ZBTabBarController.m */,
-			);
-			name = ZBTabbarController;
-			sourceTree = "<group>";
-		};
-		AFD554C01D5DC14200632E33 /* ZBNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				AFD554C11D5DC15F00632E33 /* ZBNavigationBarView.h */,
-				AFD554C21D5DC15F00632E33 /* ZBNavigationBarView.m */,
-			);
-			name = ZBNavigationBar;
-			sourceTree = "<group>";
-		};
-		AFD554C41D5DC26000632E33 /* ZBBaseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				AFD554C51D5DC27900632E33 /* ZBBaseViewController.h */,
-				AFD554C61D5DC27900632E33 /* ZBBaseViewController.m */,
-			);
-			name = ZBBaseViewController;
-			sourceTree = "<group>";
-		};
 		AFD554C81D5DD2BB00632E33 /* DEMO */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,18 +197,10 @@
 			name = DEMO;
 			sourceTree = "<group>";
 		};
-		AFD554CA1D5DD30B00632E33 /* ZBBaseTableViewControlller */ = {
-			isa = PBXGroup;
-			children = (
-				AFD554CB1D5DD32300632E33 /* ZBTableViewController.h */,
-				AFD554CC1D5DD32300632E33 /* ZBTableViewController.m */,
-			);
-			name = ZBBaseTableViewControlller;
-			sourceTree = "<group>";
-		};
 		AFDC820A1D5D9A2500BF5577 = {
 			isa = PBXGroup;
 			children = (
+				AF490CEA1D63FDF6009803E7 /* CoreLocation.framework */,
 				AFD554B91D5DBA6C00632E33 /* Default-568h@2x.png */,
 				AFDC82151D5D9A2500BF5577 /* LZBDEMO */,
 				AFDC82141D5D9A2500BF5577 /* Products */,
@@ -202,8 +218,9 @@
 		AFDC82151D5D9A2500BF5577 /* LZBDEMO */ = {
 			isa = PBXGroup;
 			children = (
+				AF490D0B1D640B6A009803E7 /* ZBCategory */,
 				AFD554C81D5DD2BB00632E33 /* DEMO */,
-				AFD554BB1D5DBFE400632E33 /* ZBBaseClass */,
+				AF490CF81D640B5C009803E7 /* ZBBaseClass */,
 				AFDC82221D5D9A2500BF5577 /* Assets.xcassets */,
 				AFDC82241D5D9A2500BF5577 /* LaunchScreen.storyboard */,
 				AFDC82271D5D9A2500BF5577 /* Info.plist */,
@@ -222,15 +239,6 @@
 				AFDC82171D5D9A2500BF5577 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		AFDC822E1D5D9B9700BF5577 /* ZBNavigationController */ = {
-			isa = PBXGroup;
-			children = (
-				AFDC822F1D5D9BCA00BF5577 /* ZBNavigationController.h */,
-				AFDC82301D5D9BCA00BF5577 /* ZBNavigationController.m */,
-			);
-			name = ZBNavigationController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +273,11 @@
 				TargetAttributes = {
 					AFDC82121D5D9A2500BF5577 = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -305,22 +318,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFB873681D631B1200AE65DC /* ZBCityGroupModel.m in Sources */,
+				AF490D051D640B5C009803E7 /* ZBBaseTableViewCell.m in Sources */,
 				AFB8735F1D62C89D00AE65DC /* pinyin.m in Sources */,
+				AF490D081D640B5C009803E7 /* ZBNavigationController.m in Sources */,
+				AF490CF61D64074D009803E7 /* ZBLocateCityTVCell.m in Sources */,
 				AFB873641D63055F00AE65DC /* ZBCitySelectViewController.m in Sources */,
-				AFDC82311D5D9BCA00BF5577 /* ZBNavigationController.m in Sources */,
 				AFD554D31D5DD41400632E33 /* ZBEntryViewController.m in Sources */,
 				AFB873571D62C81E00AE65DC /* ContanctsViewController.m in Sources */,
+				AF490D061D640B5C009803E7 /* ZBBaseViewController.m in Sources */,
+				AF490D0A1D640B5C009803E7 /* ZBTableViewController.m in Sources */,
 				AFB873551D62C81E00AE65DC /* ContanctGroupModel.m in Sources */,
-				AFD554C31D5DC15F00632E33 /* ZBNavigationBarView.m in Sources */,
+				AF490D091D640B5C009803E7 /* ZBTabBarController.m in Sources */,
 				AFDC821B1D5D9A2500BF5577 /* AppDelegate.m in Sources */,
 				AFB873581D62C81E00AE65DC /* NSMutableArray+FilterElement.m in Sources */,
+				AF490CE71D63F823009803E7 /* ZBLocationManager.m in Sources */,
 				AFB8735A1D62C81E00AE65DC /* POAPinyin.m in Sources */,
-				AFD554CD1D5DD32300632E33 /* ZBTableViewController.m in Sources */,
+				AF490D071D640B5C009803E7 /* ZBNavigationBarView.m in Sources */,
 				AFDC82181D5D9A2500BF5577 /* main.m in Sources */,
 				AFB873561D62C81E00AE65DC /* ContanctModel.m in Sources */,
-				AFD554BF1D5DC12300632E33 /* ZBTabBarController.m in Sources */,
-				AFD554C71D5DC27900632E33 /* ZBBaseViewController.m in Sources */,
 				AFB8736B1D631B3000AE65DC /* ZBCityModel.m in Sources */,
+				AF490D0E1D640B90009803E7 /* NSString+ZBNSString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
