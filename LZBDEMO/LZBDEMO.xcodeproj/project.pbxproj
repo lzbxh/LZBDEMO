@@ -34,6 +34,7 @@
 		AFDC821B1D5D9A2500BF5577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDC821A1D5D9A2500BF5577 /* AppDelegate.m */; };
 		AFDC82231D5D9A2500BF5577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDC82221D5D9A2500BF5577 /* Assets.xcassets */; };
 		AFDC82261D5D9A2500BF5577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDC82241D5D9A2500BF5577 /* LaunchScreen.storyboard */; };
+		BB0C497F1D6627BC009A3ADE /* ZBImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0C497E1D6627BC009A3ADE /* ZBImageManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,8 @@
 		AFDC82271D5D9A2500BF5577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFDC822D1D5D9AB400BF5577 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		AFDC82321D5D9CD300BF5577 /* GlobalDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
+		BB0C497D1D6627BC009A3ADE /* ZBImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImageManager.h; sourceTree = "<group>"; };
+		BB0C497E1D6627BC009A3ADE /* ZBImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImageManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 		AF7A270E1D65811A00DD7E25 /* ClipImageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BB0C497D1D6627BC009A3ADE /* ZBImageManager.h */,
+				BB0C497E1D6627BC009A3ADE /* ZBImageManager.m */,
 				AF7A27121D6593C900DD7E25 /* ZBImageCliper.h */,
 				AF7A27131D6593C900DD7E25 /* ZBImageCliper.m */,
 				AF7A270F1D65814700DD7E25 /* ZBClipImageViewController.h */,
@@ -340,6 +345,7 @@
 				AF7A27141D6593C900DD7E25 /* ZBImageCliper.m in Sources */,
 				AF490D051D640B5C009803E7 /* ZBBaseTableViewCell.m in Sources */,
 				AFB8735F1D62C89D00AE65DC /* pinyin.m in Sources */,
+				BB0C497F1D6627BC009A3ADE /* ZBImageManager.m in Sources */,
 				AF490D081D640B5C009803E7 /* ZBNavigationController.m in Sources */,
 				AF490CF61D64074D009803E7 /* ZBLocateCityTVCell.m in Sources */,
 				AFB873641D63055F00AE65DC /* ZBCitySelectViewController.m in Sources */,

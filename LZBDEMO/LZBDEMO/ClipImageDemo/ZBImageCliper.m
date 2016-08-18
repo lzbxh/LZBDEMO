@@ -7,12 +7,15 @@
 //
 
 #import "ZBImageCliper.h"
+#import "ZBImageManager.h"
 
-@interface ZBImageCliper ()<UIScrollViewDelegate>
+@interface ZBImageCliper ()<UIScrollViewDelegate> {
+    CGFloat _viewWHScale;
+}
 
-@property(strong ,nonatomic)UIScrollView *imgScrollView;
-@property(strong ,nonatomic)UIImageView  *selectImgIV;
-@property(assign ,nonatomic)CGSize midsize;
+@property(strong ,nonatomic)UIScrollView   *imgScrollView;
+@property(strong ,nonatomic)UIImageView    *selectImgIV;
+@property(strong ,nonatomic)ZBImageManager *imgMgr;
 
 @end
 
@@ -25,7 +28,6 @@ lazyLoad(UIImageView, selectImgIV)
     if (self = [super init]) {
         self.frame = CGRectMake(0, 0, ZBSCREENWIDTH, ZBSCREENWIDTH * 9.0 / 16.0);       //比例-16 : 9
         [self initUI];
-        self.midsize = self.frame.size;
     }
     return self;
 }
@@ -42,10 +44,16 @@ lazyLoad(UIImageView, selectImgIV)
     
     self.selectImgIV.frame = self.frame;
     UIImage *image = GETIMAGEWITHNAME(@"2");
-    self.selectImgIV.image = [self fixOrientation:image];
+    image = [self fixOrientation:image];
+    self.selectImgIV.image = image;
     self.selectImgIV.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:self.imgScrollView];
     [self.imgScrollView addSubview:self.selectImgIV];
+    
+    //初始化管理器
+    self.imgMgr = [[ZBImageManager alloc]initWithImage:image andViewSize:self.frame.size];
+    
+    _viewWHScale = self.frame.size.width / self.frame.size.height;
 }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -61,53 +69,50 @@ lazyLoad(UIImageView, selectImgIV)
 }
 
 -(UIImage *)clipImage {
-    if (self.selectImgIV.image == nil) {
-        LOG(@"没有图片可以截图");
-        return nil;
-    }
-    CGPoint scrollViewOffset = self.imgScrollView.contentOffset;
-    CGSize  imgSize =  self.selectImgIV.image.size;
-    
-    //得到当前IV的width和图片的比例
-    CGFloat widthZoom = self.selectImgIV.frame.size.width / imgSize.width;
-    CGFloat heightZoom = self.selectImgIV.frame.size.height / imgSize.height;
-    CGFloat zoom = 1;
-    CGFloat minZoom = widthZoom < heightZoom ? widthZoom : heightZoom;
-    LOG(@"widthZoom:%f ,heightZoom:%f" ,widthZoom ,heightZoom);
-
-    CGFloat imgWHScale = imgSize.width / imgSize.height;
-    CGFloat viewWHScale = self.frame.size.width / self.frame.size.height;
-    
-    CGFloat currentZoom = self.selectImgIV.frame.size.width / self.frame.size.width;
-    
-    CGRect rec = CGRectZero;
-    if (imgWHScale == viewWHScale) {        //1.图片的比例与scrollview一样
-        LOG(@"正好一样");
-        zoom = self.selectImgIV.frame.size.width / imgSize.width;
-        rec = CGRectMake(scrollViewOffset.x / zoom, scrollViewOffset.y / zoom, self.midsize.width / zoom, self.midsize.height / zoom);
-    }else if (imgWHScale < viewWHScale) {   //2.左右留边
-        LOG(@"左右留边");
-        CGFloat LRSpace = (self.frame.size.width - imgSize.width / minZoom) / 2.0f;
-        CGFloat clipXOffset = scrollViewOffset.x / minZoom - LRSpace;
-        rec = CGRectMake(clipXOffset >= 0 ? clipXOffset : 0, scrollViewOffset.y / minZoom, self.midsize.width / minZoom, self.midsize.height / minZoom);
-    }else {                                 //3.上下留边
-        LOG(@"上下留边");
-        CGFloat TBSpace = 0;
-        if (minZoom >= 1) {     //图片较小
-            TBSpace = (self.frame.size.height - imgSize.height * minZoom) / 2.0f;       //原始比例下的上下空白
-            CGFloat clipYOffset = scrollViewOffset.y / currentZoom - TBSpace * currentZoom;
-            rec = CGRectMake(scrollViewOffset.x / minZoom, clipYOffset > 0 ? clipYOffset / currentZoom : 0, self.midsize.width / minZoom, self.midsize.height / minZoom);
-        }else {                 //图片较大
-            TBSpace = (self.frame.size.height - imgSize.height / minZoom) / 2.0f;
-            CGFloat clipYOffset = scrollViewOffset.y / minZoom - TBSpace;
-            rec = CGRectMake(scrollViewOffset.x / minZoom, clipYOffset >= 0 ? clipYOffset : 0, self.midsize.width / minZoom, self.midsize.height / minZoom);
-        }
-    }
-    
-    CGImageRef imageRef = CGImageCreateWithImageInRect(self.selectImgIV.image.CGImage, rec);
-    UIImage *clipImage = [[UIImage alloc]initWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    return clipImage;
+    return nil;
+//    if (self.selectImgIV.image == nil) {
+//        LOG(@"没有图片可以截图");
+//        return nil;
+//    }
+//    CGPoint scrollViewOffset = self.imgScrollView.contentOffset;
+//    CGSize  imgSize =  self.selectImgIV.image.size;
+//    
+//    //得到当前IV的width和图片的比例
+//
+//    CGFloat zoom = 1;
+//    
+//    LOG(@"widthZoom:%f ,heightZoom:%f" ,self.imgMgr.widthZoom ,self.imgMgr.heightZoom);
+//
+//    CGFloat currentZoom = self.selectImgIV.frame.size.width / self.frame.size.width;
+//    
+//    CGRect rec = CGRectZero;
+//    if (imgWHScale == viewWHScale) {        //1.图片的比例与scrollview一样
+//        LOG(@"正好一样");
+//        zoom = self.selectImgIV.frame.size.width / imgSize.width;
+//        rec = CGRectMake(scrollViewOffset.x / zoom, scrollViewOffset.y / zoom, self.midsize.width / zoom, self.midsize.height / zoom);
+//    }else if (imgWHScale < viewWHScale) {   //2.左右留边
+//        LOG(@"左右留边");
+//        CGFloat LRSpace = (self.frame.size.width - imgSize.width / minZoom) / 2.0f;
+//        CGFloat clipXOffset = scrollViewOffset.x / minZoom - LRSpace;
+//        rec = CGRectMake(clipXOffset >= 0 ? clipXOffset : 0, scrollViewOffset.y / minZoom, self.midsize.width / minZoom, self.midsize.height / minZoom);
+//    }else {                                 //3.上下留边
+//        LOG(@"上下留边");
+//        CGFloat TBSpace = 0;
+//        if (minZoom >= 1) {     //图片较小
+//            TBSpace = (self.frame.size.height - imgSize.height * minZoom) / 2.0f;       //原始比例下的上下空白
+//            CGFloat clipYOffset = scrollViewOffset.y / currentZoom - TBSpace * currentZoom;
+//            rec = CGRectMake(scrollViewOffset.x / minZoom, clipYOffset > 0 ? clipYOffset / currentZoom : 0, self.midsize.width / minZoom, self.midsize.height / minZoom);
+//        }else {                 //图片较大
+//            TBSpace = (self.frame.size.height - imgSize.height / minZoom) / 2.0f;
+//            CGFloat clipYOffset = scrollViewOffset.y / minZoom - TBSpace;
+//            rec = CGRectMake(scrollViewOffset.x / minZoom, clipYOffset >= 0 ? clipYOffset : 0, self.midsize.width / minZoom, self.midsize.height / minZoom);
+//        }
+//    }
+//    
+//    CGImageRef imageRef = CGImageCreateWithImageInRect(self.selectImgIV.image.CGImage, rec);
+//    UIImage *clipImage = [[UIImage alloc]initWithCGImage:imageRef];
+//    CGImageRelease(imageRef);
+//    return clipImage;
     
     
     
