@@ -463,14 +463,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhibin Liu (CML82ZNKMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KANG ZHENG (8KQEX577P8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LZBDEMO/PrefixHeader.pch";
 				INFOPLIST_FILE = LZBDEMO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huoban.iphone.HuoBan.Debug.LZBDEMO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5f390fba-e57b-453e-b800-a6dcdff84974";
+				PROVISIONING_PROFILE = "140cdbcf-6d77-4e54-8fe2-f73230bc82c8";
 			};
 			name = Debug;
 		};
@@ -478,14 +478,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhibin Liu (CML82ZNKMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KANG ZHENG (8KQEX577P8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LZBDEMO/PrefixHeader.pch";
 				INFOPLIST_FILE = LZBDEMO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huoban.iphone.HuoBan.Debug.LZBDEMO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5f390fba-e57b-453e-b800-a6dcdff84974";
+				PROVISIONING_PROFILE = "140cdbcf-6d77-4e54-8fe2-f73230bc82c8";
 			};
 			name = Release;
 		};
