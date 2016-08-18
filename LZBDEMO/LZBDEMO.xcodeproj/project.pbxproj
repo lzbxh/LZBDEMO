@@ -17,6 +17,8 @@
 		AF490D091D640B5C009803E7 /* ZBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490D021D640B5C009803E7 /* ZBTabBarController.m */; };
 		AF490D0A1D640B5C009803E7 /* ZBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490D041D640B5C009803E7 /* ZBTableViewController.m */; };
 		AF490D0E1D640B90009803E7 /* NSString+ZBNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490D0D1D640B90009803E7 /* NSString+ZBNSString.m */; };
+		AF7A27111D65814700DD7E25 /* ZBClipImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A27101D65814700DD7E25 /* ZBClipImageViewController.m */; };
+		AF7A27141D6593C900DD7E25 /* ZBImageCliper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A27131D6593C900DD7E25 /* ZBImageCliper.m */; };
 		AFB873551D62C81E00AE65DC /* ContanctGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8734A1D62C81E00AE65DC /* ContanctGroupModel.m */; };
 		AFB873561D62C81E00AE65DC /* ContanctModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8734C1D62C81E00AE65DC /* ContanctModel.m */; };
 		AFB873571D62C81E00AE65DC /* ContanctsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8734E1D62C81E00AE65DC /* ContanctsViewController.m */; };
@@ -54,6 +56,10 @@
 		AF490D041D640B5C009803E7 /* ZBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTableViewController.m; sourceTree = "<group>"; };
 		AF490D0C1D640B90009803E7 /* NSString+ZBNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBNSString.h"; sourceTree = "<group>"; };
 		AF490D0D1D640B90009803E7 /* NSString+ZBNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBNSString.m"; sourceTree = "<group>"; };
+		AF7A270F1D65814700DD7E25 /* ZBClipImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBClipImageViewController.h; sourceTree = "<group>"; };
+		AF7A27101D65814700DD7E25 /* ZBClipImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBClipImageViewController.m; sourceTree = "<group>"; };
+		AF7A27121D6593C900DD7E25 /* ZBImageCliper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImageCliper.h; sourceTree = "<group>"; };
+		AF7A27131D6593C900DD7E25 /* ZBImageCliper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImageCliper.m; sourceTree = "<group>"; };
 		AFB873491D62C81E00AE65DC /* ContanctGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContanctGroupModel.h; sourceTree = "<group>"; };
 		AFB8734A1D62C81E00AE65DC /* ContanctGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContanctGroupModel.m; sourceTree = "<group>"; };
 		AFB8734B1D62C81E00AE65DC /* ContanctModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContanctModel.h; sourceTree = "<group>"; };
@@ -144,6 +150,17 @@
 			name = ZBCategory;
 			sourceTree = "<group>";
 		};
+		AF7A270E1D65811A00DD7E25 /* ClipImageDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AF7A27121D6593C900DD7E25 /* ZBImageCliper.h */,
+				AF7A27131D6593C900DD7E25 /* ZBImageCliper.m */,
+				AF7A270F1D65814700DD7E25 /* ZBClipImageViewController.h */,
+				AF7A27101D65814700DD7E25 /* ZBClipImageViewController.m */,
+			);
+			path = ClipImageDemo;
+			sourceTree = "<group>";
+		};
 		AFB873481D62C81E00AE65DC /* ContanctsDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +206,7 @@
 		AFD554C81D5DD2BB00632E33 /* DEMO */ = {
 			isa = PBXGroup;
 			children = (
+				AF7A270E1D65811A00DD7E25 /* ClipImageDemo */,
 				AFB873611D63052200AE65DC /* CitySelectDemo */,
 				AFB873481D62C81E00AE65DC /* ContanctsDemo */,
 				AFD554D11D5DD41400632E33 /* ZBEntryViewController.h */,
@@ -317,7 +335,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF7A27111D65814700DD7E25 /* ZBClipImageViewController.m in Sources */,
 				AFB873681D631B1200AE65DC /* ZBCityGroupModel.m in Sources */,
+				AF7A27141D6593C900DD7E25 /* ZBImageCliper.m in Sources */,
 				AF490D051D640B5C009803E7 /* ZBBaseTableViewCell.m in Sources */,
 				AFB8735F1D62C89D00AE65DC /* pinyin.m in Sources */,
 				AF490D081D640B5C009803E7 /* ZBNavigationController.m in Sources */,
