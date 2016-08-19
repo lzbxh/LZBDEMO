@@ -11,6 +11,8 @@
 
 @interface ZBImageCliper ()<UIScrollViewDelegate> {
     CGFloat _viewWHScale;
+    CGSize _viewSize;
+    CGFloat _currentScale;
 }
 
 @property(strong ,nonatomic)UIScrollView   *imgScrollView;
@@ -52,8 +54,11 @@ lazyLoad(UIImageView, selectImgIV)
     
     //初始化管理器
     self.imgMgr = [[ZBImageManager alloc]initWithImage:image andViewSize:self.frame.size];
-    
+    LOG(@"imgInfo:%@" ,self.imgMgr.description);
     _viewWHScale = self.frame.size.width / self.frame.size.height;
+    _viewSize = self.frame.size;
+    
+    _currentScale = 1.0;
 }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -64,16 +69,62 @@ lazyLoad(UIImageView, selectImgIV)
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
-    LOG(@"offsetX:%f ,offsetY:%f" ,self.imgScrollView.contentOffset.x ,self.imgScrollView.contentOffset.y);
-    LOG(@"%f ,%f" ,self.selectImgIV.frame.size.width ,self.selectImgIV.frame.size.height);
+    _currentScale = scale;
+//    LOG(@"offsetX:%f ,offsetY:%f" ,self.imgScrollView.contentOffset.x ,self.imgScrollView.contentOffset.y);
+//    LOG(@"%f ,%f" ,self.selectImgIV.frame.size.width ,self.selectImgIV.frame.size.height);
 }
 
 -(UIImage *)clipImage {
-    return nil;
-//    if (self.selectImgIV.image == nil) {
-//        LOG(@"没有图片可以截图");
-//        return nil;
-//    }
+    
+    if (self.selectImgIV.image == nil) {
+        LOG(@"没有图片可以截图");
+        return nil;
+    }
+    
+    //切图
+    CGPoint scrollViewOffset = self.imgScrollView.contentOffset;
+    //当前情况下缩放比例
+    CGRect clipRect = CGRectZero;
+    
+    switch (self.imgMgr.imgState) {
+        case IMGSTATE_FIX:
+        {
+            LOG(@"比例合适");
+            clipRect = CGRectMake(scrollViewOffset.x / _currentScale, scrollViewOffset.y / _currentScale, _viewSize.width / _currentScale, _viewSize.height / _currentScale);
+            break;
+        }
+        case IMGSTATE_LRSPACE_IMGBIG:
+        {
+            LOG(@"左右留边，图片较大");
+            break;
+        }
+        case IMGSTATE_LRSPACE_IMGSMALL:
+        {
+            LOG(@"左右留边，图片较小");
+            break;
+        }
+        case IMGSTATE_TBSPACE_IMGBIG:
+        {
+            LOG(@"上下留边，图片较大");
+            break;
+        }
+        case IMGSTATE_TBSPACE_IMGSMALL:
+        {
+            LOG(@"上下留边，图片较小");
+            //上下留边，y始终从0切起,做个效果不让图片留白切出
+            clipRect = CGRectMake(scrollViewOffset.x / _currentScale, 0, _viewSize.width * self.imgMgr.minZoom, _viewSize.height * self.imgMgr.minZoom);
+            break;
+        }
+        default:
+            break;
+    }
+
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.selectImgIV.image.CGImage, clipRect);
+    UIImage *clipImage = [[UIImage alloc]initWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return clipImage;
+    
+    
 //    CGPoint scrollViewOffset = self.imgScrollView.contentOffset;
 //    CGSize  imgSize =  self.selectImgIV.image.size;
 //    

@@ -6,6 +6,14 @@
 //  Copyright © 2016年 伙伴行. All rights reserved.
 //
 
+typedef NS_ENUM(NSUInteger ,IMGSTATE) {
+    IMGSTATE_FIX,                   //正好合适
+    IMGSTATE_LRSPACE_IMGBIG,        //左右留边，图片较大
+    IMGSTATE_LRSPACE_IMGSMALL,      //左右留边，图片较小
+    IMGSTATE_TBSPACE_IMGBIG,        //上下留边，图片较大
+    IMGSTATE_TBSPACE_IMGSMALL       //上下留边，图片较小
+};
+
 #import <Foundation/Foundation.h>
 
 @interface ZBImageManager : NSObject
@@ -14,7 +22,10 @@
 
 @property(strong ,nonatomic)UIImage *oriImg;
 
-//图片四边相对于view的空白区域，可能为0
+//图片状态
+@property(assign ,nonatomic)IMGSTATE imgState;
+
+//scale == 1 时图片四边相对于view的空白区域，可能为0
 @property(assign ,nonatomic)CGFloat topSpace;
 @property(assign ,nonatomic)CGFloat leftSpace;
 @property(assign ,nonatomic)CGFloat bottomSpace;
