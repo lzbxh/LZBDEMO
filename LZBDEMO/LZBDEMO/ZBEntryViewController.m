@@ -12,7 +12,7 @@
 #import "ZBEntryViewController.h"
 #import "ContanctsViewController.h"     //通讯录选择器
 #import "ZBCitySelectViewController.h"  //城市选择器
-#import "ZBClipImageViewController.h"   //图片剪切
+//#import "ZBClipImageViewController.h"   //图片剪切
 
 @interface ZBEntryViewController ()
 
@@ -41,11 +41,11 @@ lazyLoad(NSMutableArray, demoArray);
     NSDictionary *citySelectDemoDic  = @{CLASSNAMESTR : citySelectDemoClassStr ,DEMONAMESTR : citySelectDemoNameStr};
     [self.demoArray addObject:citySelectDemoDic];
     
-    //图片剪切
-    NSString *clipImgDemoClassStr = NSStringFromClass([ZBClipImageViewController class]);
-    NSString *clipImgDemoNameStr  = [NSString stringWithFormat:@"图片剪切Demo"];
-    NSDictionary *clipImgDemoDic  = @{CLASSNAMESTR : clipImgDemoClassStr ,DEMONAMESTR : clipImgDemoNameStr};
-    [self.demoArray addObject:clipImgDemoDic];
+//    //图片剪切
+//    NSString *clipImgDemoClassStr = NSStringFromClass([ZBClipImageViewController class]);
+//    NSString *clipImgDemoNameStr  = [NSString stringWithFormat:@"图片剪切Demo"];
+//    NSDictionary *clipImgDemoDic  = @{CLASSNAMESTR : clipImgDemoClassStr ,DEMONAMESTR : clipImgDemoNameStr};
+//    [self.demoArray addObject:clipImgDemoDic];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

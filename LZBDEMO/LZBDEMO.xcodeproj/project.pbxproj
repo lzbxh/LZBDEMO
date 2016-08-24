@@ -35,6 +35,7 @@
 		AFDC82231D5D9A2500BF5577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDC82221D5D9A2500BF5577 /* Assets.xcassets */; };
 		AFDC82261D5D9A2500BF5577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDC82241D5D9A2500BF5577 /* LaunchScreen.storyboard */; };
 		BB0C497F1D6627BC009A3ADE /* ZBImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0C497E1D6627BC009A3ADE /* ZBImageManager.m */; };
+		BB6BD00F1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6BD00E1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,8 @@
 		AFDC82321D5D9CD300BF5577 /* GlobalDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
 		BB0C497D1D6627BC009A3ADE /* ZBImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImageManager.h; sourceTree = "<group>"; };
 		BB0C497E1D6627BC009A3ADE /* ZBImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImageManager.m; sourceTree = "<group>"; };
+		BB6BD00D1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBStickHeaderWaterFallLayout.h; sourceTree = "<group>"; };
+		BB6BD00E1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBStickHeaderWaterFallLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,7 @@
 		AFD554C81D5DD2BB00632E33 /* DEMO */ = {
 			isa = PBXGroup;
 			children = (
+				BB6BD00B1D6DE327007982B4 /* HeaderWaterFallLayoutDemo */,
 				AF7A270E1D65811A00DD7E25 /* ClipImageDemo */,
 				AFB873611D63052200AE65DC /* CitySelectDemo */,
 				AFB873481D62C81E00AE65DC /* ContanctsDemo */,
@@ -262,6 +266,15 @@
 				AFDC82171D5D9A2500BF5577 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB6BD00B1D6DE327007982B4 /* HeaderWaterFallLayoutDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BB6BD00D1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.h */,
+				BB6BD00E1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.m */,
+			);
+			path = HeaderWaterFallLayoutDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +356,7 @@
 				AF7A27111D65814700DD7E25 /* ZBClipImageViewController.m in Sources */,
 				AFB873681D631B1200AE65DC /* ZBCityGroupModel.m in Sources */,
 				AF7A27141D6593C900DD7E25 /* ZBImageCliper.m in Sources */,
+				BB6BD00F1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.m in Sources */,
 				AF490D051D640B5C009803E7 /* ZBBaseTableViewCell.m in Sources */,
 				AFB8735F1D62C89D00AE65DC /* pinyin.m in Sources */,
 				BB0C497F1D6627BC009A3ADE /* ZBImageManager.m in Sources */,
