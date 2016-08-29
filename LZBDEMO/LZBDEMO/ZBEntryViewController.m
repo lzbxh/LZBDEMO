@@ -13,6 +13,7 @@
 #import "ContanctsViewController.h"     //通讯录选择器
 #import "ZBCitySelectViewController.h"  //城市选择器
 //#import "ZBClipImageViewController.h"   //图片剪切
+#import "ZBWaterFallLayoutDemoViewController.h" //悬浮header & footer
 
 @interface ZBEntryViewController ()
 
@@ -46,6 +47,11 @@ lazyLoad(NSMutableArray, demoArray);
 //    NSString *clipImgDemoNameStr  = [NSString stringWithFormat:@"图片剪切Demo"];
 //    NSDictionary *clipImgDemoDic  = @{CLASSNAMESTR : clipImgDemoClassStr ,DEMONAMESTR : clipImgDemoNameStr};
 //    [self.demoArray addObject:clipImgDemoDic];
+    
+    NSString *waterFallLayoutDemoClassStr = NSStringFromClass([ZBWaterFallLayoutDemoViewController class]);
+    NSString *waterFallLayoutDemoNameStr = [NSString stringWithFormat:@"复杂的waterFall"];
+    NSDictionary *waterFallLayoutDemoDic = @{CLASSNAMESTR : waterFallLayoutDemoClassStr ,DEMONAMESTR : waterFallLayoutDemoNameStr};
+    [self.demoArray addObject:waterFallLayoutDemoDic];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
