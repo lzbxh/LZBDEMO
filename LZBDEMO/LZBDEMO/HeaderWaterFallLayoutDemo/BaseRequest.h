@@ -37,7 +37,7 @@ typedef void (^AFConstructingBlock)(id<AFMultipartFormData> formData);
 @class BaseRequest;
 
 typedef void(^requestComplete) (BOOL succed, id obj);
-typedef void (^RequestCompletionBlock)(__kindof  ZBBaseRequest *request, id obj);
+typedef void (^RequestCompletionBlock)(__kindof  BaseRequest *request, id obj);
 
 //请求代理方法
 @protocol BaseRequestDelegate <NSObject>
