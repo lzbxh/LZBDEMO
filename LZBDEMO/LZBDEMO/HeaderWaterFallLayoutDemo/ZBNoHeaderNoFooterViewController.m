@@ -14,7 +14,7 @@
 #import "ZBBannerModel.h"
 #import "MBProgressHUD.h"
 #import "ZBHomePageCollectionViewCell.h"
-#import "ZBBaseRequest.h"
+#import "BaseRequest.h"
 
 @interface ZBNoHeaderNoFooterViewController ()
 

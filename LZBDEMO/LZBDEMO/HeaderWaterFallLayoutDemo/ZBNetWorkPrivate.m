@@ -136,7 +136,7 @@
 
 @end
 
-@implementation ZBBaseRequest(RequestAccessory)
+@implementation BaseRequest(RequestAccessory)
 
 //装载一些装饰类，执行一些代理方法
 - (void)toggleAccessoriesWillStartCallBack {

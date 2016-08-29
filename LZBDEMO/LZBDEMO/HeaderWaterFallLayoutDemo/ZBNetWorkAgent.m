@@ -7,7 +7,7 @@
 //
 
 #import "ZBNetWorkAgent.h"
-#import "ZBBaseRequest.h"
+#import "BaseRequest.h"
 #import "ZBNetWorkConfig.h"
 #import "ZBNetWorkPrivate.h"
 
@@ -38,7 +38,7 @@
 }
 
 //添加一个请求
--(void)addRequest:(ZBBaseRequest *)request {
+-(void)addRequest:(BaseRequest *)request {
     NetWorkRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
     id param = request.requestArgument;
@@ -141,7 +141,7 @@
 }
 
 //取消一个请求
--(void)cancelRequest:(ZBBaseRequest *)request {
+-(void)cancelRequest:(BaseRequest *)request {
     [request.requestDataTask cancel];
     [self removeOperation:request.requestDataTask];
     [request clearCompletionBlock];
@@ -151,13 +151,13 @@
 -(void)cancelAllRequests {
     NSDictionary *copyRecord = [_requestsRecord copy];
     for (NSString *key in copyRecord) {
-        ZBBaseRequest *request = copyRecord[key];
+        BaseRequest *request = copyRecord[key];
         [request stop];
     }
 }
 
 //根据request和networkConfig构建url
--(NSString *)buildRequestUrl:(ZBBaseRequest *)request {
+-(NSString *)buildRequestUrl:(BaseRequest *)request {
     NSString *detailUrl = [request requestUrl];
     if ([detailUrl hasPrefix:@"http"]) {
         return detailUrl;
@@ -182,7 +182,7 @@
 //请求结果操作
 -(void)handleRequestResult:(NSURLSessionDataTask *)task responseObject:(id _Nullable)responseObject {
     NSString *key = [self requestHashKey:task];
-    ZBBaseRequest *request = _requestsRecord[key];
+    BaseRequest *request = _requestsRecord[key];
     if (request) {
         BOOL succeed = [self checkResult:request];
         if (succeed) {      //请求成功
@@ -222,7 +222,7 @@
 }
 
 //检测结果是否合法
--(BOOL)checkResult:(ZBBaseRequest *)request {
+-(BOOL)checkResult:(BaseRequest *)request {
     BOOL result = [request statusCodeValidator];        //得到状态码
     if (!result) {
         return result;
@@ -237,7 +237,7 @@
 }
 
 //添加一个task
--(void)addOperation:(ZBBaseRequest *)request {
+-(void)addOperation:(BaseRequest *)request {
     if (request.requestDataTask != nil) {
         NSString *key = [self requestHashKey:request.requestDataTask];
         @synchronized (self) {

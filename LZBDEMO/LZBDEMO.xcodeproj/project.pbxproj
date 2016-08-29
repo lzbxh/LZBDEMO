@@ -13,10 +13,12 @@
 		AF29B4451D73CF190063DE46 /* ZBNoHeaderNoFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4441D73CF190063DE46 /* ZBNoHeaderNoFooterViewController.m */; };
 		AF29B4491D73D1130063DE46 /* ZBBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4481D73D1130063DE46 /* ZBBannerModel.m */; };
 		AF29B44C1D73D3120063DE46 /* ZBHomePageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B44B1D73D3120063DE46 /* ZBHomePageCollectionViewCell.m */; };
-		AF29B4501D73E0B10063DE46 /* ZBBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B44F1D73E0B10063DE46 /* ZBBaseRequest.m */; };
+		AF29B4501D73E0B10063DE46 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B44F1D73E0B10063DE46 /* BaseRequest.m */; };
 		AF29B4531D73E2A60063DE46 /* ZBNetWorkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4521D73E2A60063DE46 /* ZBNetWorkPrivate.m */; };
 		AF29B4561D7405090063DE46 /* ZBNetWorkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4551D7405090063DE46 /* ZBNetWorkAgent.m */; };
 		AF29B4591D7405CF0063DE46 /* ZBNetWorkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4581D7405CF0063DE46 /* ZBNetWorkConfig.m */; };
+		AF29B45C1D743D9B0063DE46 /* ZBBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B45B1D743D9B0063DE46 /* ZBBaseRequest.m */; };
+		AF29B45F1D743E7D0063DE46 /* ZBRequestCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29B45E1D743E7D0063DE46 /* ZBRequestCustomer.m */; };
 		AF490CE71D63F823009803E7 /* ZBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490CE61D63F823009803E7 /* ZBLocationManager.m */; };
 		AF490CEB1D63FDF6009803E7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF490CEA1D63FDF6009803E7 /* CoreLocation.framework */; };
 		AF490CF61D64074D009803E7 /* ZBLocateCityTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF490CF51D64074D009803E7 /* ZBLocateCityTVCell.m */; };
@@ -63,14 +65,18 @@
 		AF29B4481D73D1130063DE46 /* ZBBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBannerModel.m; sourceTree = "<group>"; };
 		AF29B44A1D73D3120063DE46 /* ZBHomePageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBHomePageCollectionViewCell.h; sourceTree = "<group>"; };
 		AF29B44B1D73D3120063DE46 /* ZBHomePageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBHomePageCollectionViewCell.m; sourceTree = "<group>"; };
-		AF29B44E1D73E0B10063DE46 /* ZBBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBaseRequest.h; sourceTree = "<group>"; };
-		AF29B44F1D73E0B10063DE46 /* ZBBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBaseRequest.m; sourceTree = "<group>"; };
+		AF29B44E1D73E0B10063DE46 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		AF29B44F1D73E0B10063DE46 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 		AF29B4511D73E2A60063DE46 /* ZBNetWorkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetWorkPrivate.h; sourceTree = "<group>"; };
 		AF29B4521D73E2A60063DE46 /* ZBNetWorkPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNetWorkPrivate.m; sourceTree = "<group>"; };
 		AF29B4541D7405090063DE46 /* ZBNetWorkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetWorkAgent.h; sourceTree = "<group>"; };
 		AF29B4551D7405090063DE46 /* ZBNetWorkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNetWorkAgent.m; sourceTree = "<group>"; };
 		AF29B4571D7405CF0063DE46 /* ZBNetWorkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetWorkConfig.h; sourceTree = "<group>"; };
 		AF29B4581D7405CF0063DE46 /* ZBNetWorkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNetWorkConfig.m; sourceTree = "<group>"; };
+		AF29B45A1D743D9B0063DE46 /* ZBBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBaseRequest.h; sourceTree = "<group>"; };
+		AF29B45B1D743D9B0063DE46 /* ZBBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBaseRequest.m; sourceTree = "<group>"; };
+		AF29B45D1D743E7D0063DE46 /* ZBRequestCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestCustomer.h; sourceTree = "<group>"; };
+		AF29B45E1D743E7D0063DE46 /* ZBRequestCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestCustomer.m; sourceTree = "<group>"; };
 		AF490CE51D63F823009803E7 /* ZBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBLocationManager.h; sourceTree = "<group>"; };
 		AF490CE61D63F823009803E7 /* ZBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBLocationManager.m; sourceTree = "<group>"; };
 		AF490CEA1D63FDF6009803E7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -190,14 +196,18 @@
 		AF29B44D1D73E0280063DE46 /* tool */ = {
 			isa = PBXGroup;
 			children = (
-				AF29B44E1D73E0B10063DE46 /* ZBBaseRequest.h */,
-				AF29B44F1D73E0B10063DE46 /* ZBBaseRequest.m */,
+				AF29B44E1D73E0B10063DE46 /* BaseRequest.h */,
+				AF29B44F1D73E0B10063DE46 /* BaseRequest.m */,
 				AF29B4511D73E2A60063DE46 /* ZBNetWorkPrivate.h */,
 				AF29B4521D73E2A60063DE46 /* ZBNetWorkPrivate.m */,
 				AF29B4541D7405090063DE46 /* ZBNetWorkAgent.h */,
 				AF29B4551D7405090063DE46 /* ZBNetWorkAgent.m */,
 				AF29B4571D7405CF0063DE46 /* ZBNetWorkConfig.h */,
 				AF29B4581D7405CF0063DE46 /* ZBNetWorkConfig.m */,
+				AF29B45A1D743D9B0063DE46 /* ZBBaseRequest.h */,
+				AF29B45B1D743D9B0063DE46 /* ZBBaseRequest.m */,
+				AF29B45D1D743E7D0063DE46 /* ZBRequestCustomer.h */,
+				AF29B45E1D743E7D0063DE46 /* ZBRequestCustomer.m */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -529,13 +539,14 @@
 				AF490D051D640B5C009803E7 /* ZBBaseTableViewCell.m in Sources */,
 				AFB8735F1D62C89D00AE65DC /* pinyin.m in Sources */,
 				BB0C497F1D6627BC009A3ADE /* ZBImageManager.m in Sources */,
-				AF29B4501D73E0B10063DE46 /* ZBBaseRequest.m in Sources */,
+				AF29B4501D73E0B10063DE46 /* BaseRequest.m in Sources */,
 				AF490D081D640B5C009803E7 /* ZBNavigationController.m in Sources */,
 				AF29B4561D7405090063DE46 /* ZBNetWorkAgent.m in Sources */,
 				AF490CF61D64074D009803E7 /* ZBLocateCityTVCell.m in Sources */,
 				AFB873641D63055F00AE65DC /* ZBCitySelectViewController.m in Sources */,
 				AFD554D31D5DD41400632E33 /* ZBEntryViewController.m in Sources */,
 				AF29B4491D73D1130063DE46 /* ZBBannerModel.m in Sources */,
+				AF29B45C1D743D9B0063DE46 /* ZBBaseRequest.m in Sources */,
 				AFB873571D62C81E00AE65DC /* ContanctsViewController.m in Sources */,
 				AF490D061D640B5C009803E7 /* ZBBaseViewController.m in Sources */,
 				AF29B4451D73CF190063DE46 /* ZBNoHeaderNoFooterViewController.m in Sources */,
@@ -543,6 +554,7 @@
 				AFB873551D62C81E00AE65DC /* ContanctGroupModel.m in Sources */,
 				AF490D091D640B5C009803E7 /* ZBTabBarController.m in Sources */,
 				AFDC821B1D5D9A2500BF5577 /* AppDelegate.m in Sources */,
+				AF29B45F1D743E7D0063DE46 /* ZBRequestCustomer.m in Sources */,
 				AFB873581D62C81E00AE65DC /* NSMutableArray+FilterElement.m in Sources */,
 				AF490CE71D63F823009803E7 /* ZBLocationManager.m in Sources */,
 				AFB8735A1D62C81E00AE65DC /* POAPinyin.m in Sources */,

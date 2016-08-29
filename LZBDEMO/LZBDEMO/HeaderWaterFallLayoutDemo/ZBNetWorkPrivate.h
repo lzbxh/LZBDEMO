@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZBBaseRequest.h"
+#import "BaseRequest.h"
 
 //供 ZBBaseRequest类 使用的一些内部方法
 @interface ZBNetWorkPrivate : NSObject
@@ -26,7 +26,7 @@
 @end
 
 //请求类的钩子方法
-@interface ZBBaseRequest (RequestAccessory)
+@interface BaseRequest (RequestAccessory)
 
 - (void)toggleAccessoriesWillStartCallBack;
 - (void)toggleAccessoriesWillStopCallBack;

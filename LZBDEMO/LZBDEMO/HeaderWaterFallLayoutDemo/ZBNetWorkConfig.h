@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ZBBaseRequest;
+@class BaseRequest;
 
 //url采集器
 @protocol ZBUrlFilterProtocol <NSObject>
 
-- (NSString *)filterUrl:(NSString *)originUrl withRequest:(ZBBaseRequest *)request;
+- (NSString *)filterUrl:(NSString *)originUrl withRequest:(BaseRequest *)request;
 
 @end
 
