@@ -17,5 +17,6 @@
 #import "NSString+ZBNSString.h"
 #import <MJExtension.h>
 #import "AFNetWorking.h"
+#import "UIImageView+WebCache.h"
 
 #endif /* PrefixHeader_pch */

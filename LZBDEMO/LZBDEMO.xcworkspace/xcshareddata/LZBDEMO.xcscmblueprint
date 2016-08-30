@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D8D2B53AF2016F2B6F1B4F99D245D3E417376273",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2D789001DC2BC76ABA9D6F2F17D39981700342B9" : 0,
+    "D8D2B53AF2016F2B6F1B4F99D245D3E417376273" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CD3576D7-AED6-4CCC-B976-3238F4DEE3D5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2D789001DC2BC76ABA9D6F2F17D39981700342B9" : "",
+    "D8D2B53AF2016F2B6F1B4F99D245D3E417376273" : "LZBDEMO\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LZBDEMO",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LZBDEMO\/LZBDEMO.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lzbxh\/LearnCoreText.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2D789001DC2BC76ABA9D6F2F17D39981700342B9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lzbxh\/LZBDEMO.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D8D2B53AF2016F2B6F1B4F99D245D3E417376273"
+    }
+  ]
+}

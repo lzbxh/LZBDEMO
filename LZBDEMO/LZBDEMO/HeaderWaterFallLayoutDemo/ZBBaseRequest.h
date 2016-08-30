@@ -7,6 +7,7 @@
 //
 
 #import "BaseRequest.h"
+#import "ZBURLMacro.h"
 
 @interface ZBBaseRequest : BaseRequest
 

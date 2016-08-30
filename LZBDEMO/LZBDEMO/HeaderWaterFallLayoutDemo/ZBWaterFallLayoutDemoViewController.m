@@ -8,6 +8,8 @@
 
 #import "ZBWaterFallLayoutDemoViewController.h"
 #import "ZBNoHeaderNoFooterViewController.h"
+#import "ZBNetWorkConfig.h"
+#import "ZBURLMacro.h"
 
 @interface ZBWaterFallLayoutDemoViewController ()
 
@@ -33,6 +35,10 @@ lazyLoad(NSMutableArray, demoArray)
     [self setNavigationBarLeftButton:backBut];
     
     [self.demoArray addObject:@"ZBNoHeaderNoFooterViewController"];
+    
+    //初始化网络配置器
+    ZBNetWorkConfig *config = [ZBNetWorkConfig shareInstance];
+    config.baseUrl = URL_MAIN;
 }
 
 -(void)back{

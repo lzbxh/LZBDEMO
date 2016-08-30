@@ -13,13 +13,19 @@
 
 @property(strong ,nonatomic)ZBHomeModel *shop;
 
-@property (strong, nonatomic) UIImageView *shopImage;
-@property (strong, nonatomic) UILabel *shopName;
-@property (strong, nonatomic) UIImageView *avatarImageView;
-@property (strong, nonatomic) UIImageView *vImageView;
-@property (strong, nonatomic) UILabel *nameLabel;
-@property (strong, nonatomic) UIImageView *locationImageView;
-@property (strong, nonatomic) UILabel *locationLabel;
-@property (strong, nonatomic) UIImageView *markImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *shopImage;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *vImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *locationImageView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *markImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameLabelWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingNameLableConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *locationNameConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *locationIconConstraint;
+
 
 @end

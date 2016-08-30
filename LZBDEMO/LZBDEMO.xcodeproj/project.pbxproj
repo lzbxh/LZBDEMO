@@ -48,6 +48,9 @@
 		AFDC82261D5D9A2500BF5577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDC82241D5D9A2500BF5577 /* LaunchScreen.storyboard */; };
 		BB0C497F1D6627BC009A3ADE /* ZBImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0C497E1D6627BC009A3ADE /* ZBImageManager.m */; };
 		BB6BD00F1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6BD00E1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.m */; };
+		BBFD67CA1D75636200D98A2E /* ZBHomePageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFD67C91D75636200D98A2E /* ZBHomePageCollectionViewCell.xib */; };
+		BBFD67CE1D75642300D98A2E /* ZBHomeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD67CD1D75642300D98A2E /* ZBHomeRequest.m */; };
+		BBFD67D21D75649F00D98A2E /* ZBHomeBannerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD67D11D75649F00D98A2E /* ZBHomeBannerRequest.m */; };
 		C2C390D43243102F71E4E3F9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1BA9BF7BEFFD6F9301E5B9A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +138,12 @@
 		BB0C497E1D6627BC009A3ADE /* ZBImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImageManager.m; sourceTree = "<group>"; };
 		BB6BD00D1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBStickHeaderWaterFallLayout.h; sourceTree = "<group>"; };
 		BB6BD00E1D6DE3CA007982B4 /* ZBStickHeaderWaterFallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBStickHeaderWaterFallLayout.m; sourceTree = "<group>"; };
+		BBFD67C91D75636200D98A2E /* ZBHomePageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBHomePageCollectionViewCell.xib; sourceTree = "<group>"; };
+		BBFD67CC1D75642300D98A2E /* ZBHomeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBHomeRequest.h; sourceTree = "<group>"; };
+		BBFD67CD1D75642300D98A2E /* ZBHomeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBHomeRequest.m; sourceTree = "<group>"; };
+		BBFD67CF1D75647000D98A2E /* ZBURLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBURLMacro.h; sourceTree = "<group>"; };
+		BBFD67D01D75649F00D98A2E /* ZBHomeBannerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBHomeBannerRequest.h; sourceTree = "<group>"; };
+		BBFD67D11D75649F00D98A2E /* ZBHomeBannerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBHomeBannerRequest.m; sourceTree = "<group>"; };
 		EB94DE6BE51950541B1F34A4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +178,7 @@
 				AF29B4411D73CE040063DE46 /* ZBHomePageHeadView.m */,
 				AF29B44A1D73D3120063DE46 /* ZBHomePageCollectionViewCell.h */,
 				AF29B44B1D73D3120063DE46 /* ZBHomePageCollectionViewCell.m */,
+				BBFD67C91D75636200D98A2E /* ZBHomePageCollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -375,6 +385,7 @@
 		BB6BD00B1D6DE327007982B4 /* HeaderWaterFallLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BBFD67CB1D75641300D98A2E /* Request */,
 				AF29B44D1D73E0280063DE46 /* tool */,
 				AF29B4461D73CF220063DE46 /* Layout */,
 				AF29B43F1D73CDCF0063DE46 /* Controller */,
@@ -382,6 +393,18 @@
 				AF29B43A1D73C92F0063DE46 /* Model */,
 			);
 			path = HeaderWaterFallLayoutDemo;
+			sourceTree = "<group>";
+		};
+		BBFD67CB1D75641300D98A2E /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD67CF1D75647000D98A2E /* ZBURLMacro.h */,
+				BBFD67CC1D75642300D98A2E /* ZBHomeRequest.h */,
+				BBFD67CD1D75642300D98A2E /* ZBHomeRequest.m */,
+				BBFD67D01D75649F00D98A2E /* ZBHomeBannerRequest.h */,
+				BBFD67D11D75649F00D98A2E /* ZBHomeBannerRequest.m */,
+			);
+			name = Request;
 			sourceTree = "<group>";
 		};
 		EACE2620EF544445D086983B /* Pods */ = {
@@ -467,6 +490,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBFD67CA1D75636200D98A2E /* ZBHomePageCollectionViewCell.xib in Resources */,
 				AFDC82261D5D9A2500BF5577 /* LaunchScreen.storyboard in Resources */,
 				AFDC82231D5D9A2500BF5577 /* Assets.xcassets in Resources */,
 				AFD554BA1D5DBA6C00632E33 /* Default-568h@2x.png in Resources */,
@@ -530,6 +554,7 @@
 			files = (
 				AF7A27111D65814700DD7E25 /* ZBClipImageViewController.m in Sources */,
 				AFB873681D631B1200AE65DC /* ZBCityGroupModel.m in Sources */,
+				BBFD67D21D75649F00D98A2E /* ZBHomeBannerRequest.m in Sources */,
 				AF29B4591D7405CF0063DE46 /* ZBNetWorkConfig.m in Sources */,
 				AF29B4391D73C7B70063DE46 /* ZBWaterFallLayoutDemoViewController.m in Sources */,
 				AF7A27141D6593C900DD7E25 /* ZBImageCliper.m in Sources */,
@@ -544,6 +569,7 @@
 				AF29B4561D7405090063DE46 /* ZBNetWorkAgent.m in Sources */,
 				AF490CF61D64074D009803E7 /* ZBLocateCityTVCell.m in Sources */,
 				AFB873641D63055F00AE65DC /* ZBCitySelectViewController.m in Sources */,
+				BBFD67CE1D75642300D98A2E /* ZBHomeRequest.m in Sources */,
 				AFD554D31D5DD41400632E33 /* ZBEntryViewController.m in Sources */,
 				AF29B4491D73D1130063DE46 /* ZBBannerModel.m in Sources */,
 				AF29B45C1D743D9B0063DE46 /* ZBBaseRequest.m in Sources */,
